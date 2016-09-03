@@ -1,0 +1,18 @@
+#### 应用程序混淆
+* 作用
+	
+		1,防止反编译apk
+	    2，瘦身apk 发布的时候体积变小
+
+* 步骤
+
+     1，拷贝\sdk\tools\proguard\proguard-android.txt文件到工程的根目录
+     2，修改project.properties文件取消#proguard.config=proguard-android.txt注释
+         相当于在该文件添加一行信息 proguard.config=proguard-android.txt
+
+*  proguard-android.txt规范
+
+     1，-dontwarn com.sina.weibo.sdk.**（影响混淆jar文件过滤掉）
+     2, 保留(四大组件,代码用到反射实例化的类)
+         保留类 如：
+               -keep class com.itheima62.mobileguard.utils.Md5Utils 
